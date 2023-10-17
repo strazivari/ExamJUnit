@@ -19,7 +19,13 @@ public class AllAssertions {
                 () -> Assertions.assertTrue((!loginInput.exists()))
         );
     }
-    public static void taskTest() {
+    public static void taskTest(String issueTypeParam,
+                                String issueValueParam,
+                                String  versionFieldParam,
+                                String  priorityFieldParam,
+                                String labelSelectTestParam,
+                                String descriptionAreaParam,
+                                String  testEnvironmentAreaParam) {
         assertAll("Task fields fill check",
                 () -> assertEquals(issueType.getValue(), issueTypeParam),
                 () -> assertEquals(issueValue.getValue(), issueValueParam),
@@ -39,8 +45,6 @@ public class AllAssertions {
 
     }
     public static void completeTaskCheck (String taskStatusCheckInWorkParam){
-        assertAll("Version, Status of task check",
-        );
-
+        assertAll("Version, Status of task check");
     }
 }

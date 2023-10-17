@@ -4,12 +4,16 @@ import org.junit.jupiter.api.Test;
 import static Steps.AuthPageSteps.*;
 import static Steps.MainPageSteps.*;
 import static Steps.TasksPageSteps.*;
+import static configuration.Configuration.printProperties;
+import static java.lang.System.getProperty;
+
+import static java.lang.System.getProperty;
 
 public class cssXpathTest extends WebHooks {
     @Test
     public void jiraTest() {
         chromeTest();
-        loginFunc("AT16", "Qwerty123");
+        loginFunc(printProperties(login), getProperty("password"));
         goToRequiredProject();
         showAmountOfCompletedTasks();
         search("TestSelenium");
