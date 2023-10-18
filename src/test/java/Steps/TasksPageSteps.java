@@ -2,9 +2,8 @@ package Steps;
 
 import Elements.TasksPageElements;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Assertions;
 
-import static com.codeborne.selenide.Selenide.sleep;
+import static Elements.AllAssertions.completeTaskCheck;
 
 public class TasksPageSteps extends TasksPageElements {
     @Step("Провека количества задач в проекте")
@@ -31,51 +30,43 @@ public class TasksPageSteps extends TasksPageElements {
 
         searchFilter.click();
         myOpenedTasks.click();
-        Assertions.assertEquals(searchFilterTest.getText(), searchFilterTestParam);
+        completeTaskCheck(searchFilterTest, searchFilterTestParam);
 
         filterActivation.click();
         filterByDate.click();
-        sleep(2000);
-        Assertions.assertEquals(searchSortTest.getText(), searchSortTestParam);
+        completeTaskCheck(searchSortTest, searchSortTestParam);
 
         lastTask.click();
 
         inProgressTask.click();
-        sleep(2000);
-        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckInWorkParam);
+        completeTaskCheck(taskStatusCheck, taskStatusCheckInWorkParam);
 
         businessProcessTask.click();
         executedTask.click();
         submitButtonTask.click();
-        sleep(2000);
-        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckDoneParam);
+        completeTaskCheck(taskStatusCheck, taskStatusCheckDoneParam);
 
         businessProcessTask.click();
         reopenedTask.click();
         submitButtonTask.click();
-        sleep(2000);
-        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckReopenParam);
+        completeTaskCheck(taskStatusCheck, taskStatusCheckReopenParam);
 
         businessProcessTask.click();
         inWorkTask.click();
-        sleep(2000);
-        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckInWorkParam);
+        completeTaskCheck(taskStatusCheck, taskStatusCheckInWorkParam);
 
         businessProcessTask.click();
         executedTask.click();
         submitButtonTask.click();
-        sleep(2000);
-        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckDoneParam);
+        completeTaskCheck(taskStatusCheck, taskStatusCheckDoneParam);
 
         businessProcessTask.click();
         approvedTask.click();
         submitButtonTask.click();
-        sleep(2000);
-        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckFinishedParam);
+        completeTaskCheck(taskStatusCheck, taskStatusCheckFinishedParam);
 
         doneTask.click();
-        sleep(2000);
-        Assertions.assertEquals(taskStatusCheck2.getText(), taskStatusCheckFinished2Param);
+        completeTaskCheck(taskStatusCheck2, taskStatusCheckFinished2Param);
 
     }
 }

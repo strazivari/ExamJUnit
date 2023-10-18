@@ -2,7 +2,6 @@ package Steps;
 
 import Elements.AllAssertions;
 import Elements.AuthPageElements;
-import org.junit.jupiter.api.Assertions;
 
 import java.time.Duration;
 
