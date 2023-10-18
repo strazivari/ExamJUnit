@@ -1,12 +1,14 @@
-package Steps;
+package steps;
 
-import Elements.AllAssertions;
-import Elements.SingleTaskPageElement;
+import elements.AllAssertions;
+import elements.SingleTaskPageElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class SingleTaskPageSteps extends SingleTaskPageElement {
+    @Step("Проверка статуса и версии задания")
     public static void taskCheck(String taskStatusCheckInWorkParam, String versionFieldParam) {
         try {
             AllAssertions.taskCheck(taskStatusCheckInWorkParam, versionFieldParam);
@@ -15,6 +17,7 @@ public class SingleTaskPageSteps extends SingleTaskPageElement {
         }
     }
 
+    @Step("Заполнение при созданнии задания")
     public static void createTask(String issueTypeParam,
                                   String issueValueParam,
                                   String versionFieldParam,

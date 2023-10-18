@@ -1,11 +1,9 @@
-package Elements;
+package elements;
 
 public class PageElementsParams {
-    public String loginInputParam = "AT16";
     public String issueTypeParam = "Ошибка";
     public String priorityFieldParam = "Medium";
     public String issueValueParam = "TestSelenium";
-    public String passwordInputParam = "Qwerty123";
     public String searchInputParam = "TestSelenium";
     public String versionFieldParam = "Version 2.0";
     public String labelSelectTestParam = "bugBuzzers";

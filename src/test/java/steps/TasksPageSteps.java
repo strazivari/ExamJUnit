@@ -1,25 +1,26 @@
-package Steps;
+package steps;
 
-import Elements.TasksPageElements;
+import elements.TasksPageElements;
 import io.qameta.allure.Step;
 
-import static Elements.AllAssertions.completeTaskCheck;
+import static elements.AllAssertions.completeTaskCheck;
 
 public class TasksPageSteps extends TasksPageElements {
-    @Step("Провека количества задач в проекте")
+    @Step("Отображение количества задач в проекте")
     public static void showAmountOfCompletedTasks() {
         tasksPage.click();
         String text = completedTasks.getText();
         String[] words = text.split(" ");
         System.out.println("Количество задач в проекте:" + words[2]);
-
     }
 
+    @Step("Поиск, переход в тест TestSelenium")
     public static void search(String searchInputParam) {
         searchInput.setValue(searchInputParam);
         firstSearchResult.click();
     }
 
+    @Step("Изменение статуса задания")
     public static void completeTask(String searchSortTestParam,
                                     String searchFilterTestParam,
                                     String taskStatusCheckDoneParam,

@@ -1,9 +1,9 @@
-package StepDefinitions;
+package stepDefinitions;
 
-import Steps.AuthPageSteps;
-import Steps.MainPageSteps;
-import Steps.SingleTaskPageSteps;
-import Steps.TasksPageSteps;
+import steps.AuthPageSteps;
+import steps.MainPageSteps;
+import steps.SingleTaskPageSteps;
+import steps.TasksPageSteps;
 import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;

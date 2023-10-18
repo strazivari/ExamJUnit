@@ -1,10 +1,10 @@
-package Elements;
+package elements;
 
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 
-import static Elements.AuthPageElements.*;
-import static Elements.SingleTaskPageElement.*;
+import static elements.AuthPageElements.*;
+import static elements.SingleTaskPageElement.*;
 import static com.codeborne.selenide.Selenide.sleep;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;

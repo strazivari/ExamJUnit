@@ -1,22 +1,24 @@
-import Hooks.WebHooks;
-import Steps.SingleTaskPageSteps;
-import org.junit.Test;
+import hooks.WebHooks;
+import io.qameta.allure.Description;
+import org.junit.jupiter.api.Test;
 
-import static Steps.AuthPageSteps.*;
-import static Steps.MainPageSteps.*;
-import static Steps.TasksPageSteps.*;
-import static Steps.SingleTaskPageSteps.*;
+import static steps.AuthPageSteps.*;
+import static steps.MainPageSteps.*;
+import static steps.TasksPageSteps.*;
+import static steps.SingleTaskPageSteps.*;
 
 
 import static configuration.Configuration.getProperty;
-public class cssXpathTest extends WebHooks {
+
+public class RunnerTest extends WebHooks {
     @Test
+    @Description("Ui тестирование EduJira")
     public void jiraTest() {
         chromeTest(getProperty("host"));
         loginFunc(getProperty("login"), getProperty("password"));
         goToRequiredProject();
         showAmountOfCompletedTasks();
-        search("TestSelenium");
+        search(searchInputParam);
         taskCheck(taskStatusCheckInWorkParam, versionFieldParam);
         createTask(issueTypeParam,
                 issueValueParam,
