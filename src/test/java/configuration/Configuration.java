@@ -5,28 +5,17 @@ import java.util.Properties;
 import java.io.IOException;
 
 public class Configuration {
-    public void props() {
-
-        FileInputStream fis;
-        Properties property = new Properties();
-
-
+    protected static FileInputStream fis;
+    protected static Properties property;
+        static {
         try {
             fis = new FileInputStream("src/test/resources/application.properties");
+            property = new Properties();
             property.load(fis);
-
-            String host = property.getProperty("host");
-            String login = property.getProperty("login");
-            String password = property.getProperty("password");
         } catch (IOException e) {
             System.err.println("ОШИБКА: Файл свойств отсуствует!");
-        }
-    }
-    public static void printProperties(Properties properties)
-    {
-        properties.stringPropertyNames().stream()
-                .map(key -> key + ":" + properties.getProperty(key))
-                .forEach(System.out::println);
-    }
+        }}
 
+    public static String getProperty(String key) {
+        return property.getProperty(key); }
 }
