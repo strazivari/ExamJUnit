@@ -18,6 +18,7 @@ public class AllAssertions {
     }
 
     public static void loginCheck() {
+        sleep(3000);
         assertAll("Login, Password fields fill check",
                 () -> Assertions.assertTrue((!loginInput.exists()))
         );

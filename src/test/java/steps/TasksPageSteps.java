@@ -3,15 +3,20 @@ package steps;
 import elements.TasksPageElements;
 import io.qameta.allure.Step;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static elements.AllAssertions.completeTaskCheck;
 
 public class TasksPageSteps extends TasksPageElements {
     @Step("Отображение количества задач в проекте")
     public static void showAmountOfCompletedTasks() {
+        Logger logger = Logger.getLogger(TasksPageSteps.class.getName());
         tasksPage.click();
         String text = completedTasks.getText();
         String[] words = text.split(" ");
-        System.out.println("Количество задач в проекте:" + words[2]);
+
+        logger.log(Level.INFO, "Количество задач в проекте:" + words[2]);
     }
 
     @Step("Поиск, переход в тест TestSelenium")
@@ -68,6 +73,5 @@ public class TasksPageSteps extends TasksPageElements {
 
         doneTask.click();
         completeTaskCheck(taskStatusCheck2, taskStatusCheckFinished2Param);
-
     }
 }

@@ -3,10 +3,14 @@ package configuration;
 import java.io.*;
 import java.util.Properties;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Configuration {
     protected static FileInputStream fis;
     protected static Properties property;
+
+    static Logger logger = Logger.getLogger(Configuration.class.getName());
 
     static {
         try {
@@ -14,7 +18,7 @@ public class Configuration {
             property = new Properties();
             property.load(fis);
         } catch (IOException e) {
-            System.err.println("ОШИБКА: Файл свойств отсуствует!");
+            logger.log(Level.WARNING, "ОШИБКА: Файл свойств отсуствует!");
         }
     }
 

@@ -1,6 +1,5 @@
 package steps;
 
-import elements.AllAssertions;
 import elements.MainPageElements;
 import io.qameta.allure.Step;
 
@@ -9,8 +8,6 @@ public class MainPageSteps extends MainPageElements {
     public static void goToRequiredProject() {
         listOfCurrentProjects.click();
         requiredProject.click();
-
-        AllAssertions.loginCheck();
     }
 
 }

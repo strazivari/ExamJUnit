@@ -5,15 +5,19 @@ import elements.SingleTaskPageElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class SingleTaskPageSteps extends SingleTaskPageElement {
     @Step("Проверка статуса и версии задания")
     public static void taskCheck(String taskStatusCheckInWorkParam, String versionFieldParam) {
+        Logger logger = Logger.getLogger(SingleTaskPageSteps.class.getName());
         try {
             AllAssertions.taskCheck(taskStatusCheckInWorkParam, versionFieldParam);
         } catch (AssertionError e) {
-            System.out.println(e.getMessage());
+            logger.log(Level.INFO, e.getMessage());
         }
     }
 
@@ -31,6 +35,7 @@ public class SingleTaskPageSteps extends SingleTaskPageElement {
             sleep(1000);
             issueTypeBug.click();
         }
+
         issueValue.setValue(issueValueParam);
         descriptionArea.sendKeys(descriptionAreaParam);
         versionField.click();
@@ -38,6 +43,7 @@ public class SingleTaskPageSteps extends SingleTaskPageElement {
             priorityField.click();
             priorityFieldMedium.click();
         }
+
         labelSelect.sendKeys(labelSelectTestParam);
         labelSelect.sendKeys(Keys.RETURN);
         testEnvironmentArea.sendKeys(testEnvironmentAreaParam);

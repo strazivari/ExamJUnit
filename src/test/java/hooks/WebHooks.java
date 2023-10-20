@@ -10,12 +10,6 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class WebHooks extends PageElementsParams {
-    @Step("Открываем начальную страницу")
-    public void chromeTest(String host) {
-        open(host);
-        getWebDriver().manage().window().maximize();
-    }
-
     @BeforeAll
     public static void allureSubThreadParallel() {
         String listenerName = "AllureSelenide";
@@ -23,4 +17,12 @@ public class WebHooks extends PageElementsParams {
             SelenideLogger.addListener(listenerName,
                     (new AllureSelenide().screenshots(true).savePageSource(false)));
     }
+
+    @Step("Открываем начальную страницу")
+    public void chromeTest(String host) {
+        open(host);
+        getWebDriver().manage().window().maximize();
+    }
+
+
 }
